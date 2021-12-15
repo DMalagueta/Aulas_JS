@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Intro</title>
+</head>
+<body>
+    <h1> Javascript - Estruturas de decisão - IF/Else</h1>
+    <section id="output">...</section>
+
+    <script>
+        let saldo = 300;
+        let texto = " ";
+
+        /* Valores Booleanos, normalmente calculados atraves de operadores de comparação: 
+        < , > , <= , >= , == , === , != , !== */
+
+        //let teste = saldo > 500;
+
+        //Estruturas de Decisao (IF/ELSE)
+        /* if ( saldo < 500 ) {
+            // só é executado se a condicao for verdadeira
+            texto = `
+                <h3> Vai comprar uma boa prenda de Natal.. </h3>
+                `;
+        } */
+
+        /* if ( saldo > 500 ) {
+            // só é executado se a condicao for verdadeira
+            texto = `
+                <h3> Vai comprar uma boa prenda de Natal.. </h3>
+                `;
+        } else  {
+            // só é executado se condicao for falsa
+            texto = `
+                <h3> Vai comprar uma prenda da treta.. </h3>
+                `;
+        } */
+
+        /* if ( saldo > 800 ){
+            // só é executado se a condicao for verdadeira
+            texto = `
+                <h3> Vai comprar uma boa prenda de Natal.. </h3>
+                `;
+        } else if( saldo > 400 ) {
+            // só é executado se condicao for falsa
+            texto = `
+                <h3> Vai comprar uma prenda da treta.. </h3>
+                `;
+        } else {
+            texto = `
+                <h3> Vai trabalhar... </h3>
+                `;
+        } */
+
+        //SWITCH
+
+        //let lingua = 'es';
+        let lingua = prompt("Qual a lingua pretendida? (en, fr, es, pt)");
+
+        switch (lingua){
+            case 'pt': texto = 'Bom dia';
+                break;
+
+            case 'en': texto = 'Good Morning';
+                break;
+
+            case 'fr': texto = 'Bonjour';
+                break;
+
+            case 'es': texto = 'Buenos Dias';
+                break;
+
+            default: texto = 'Não conheço essa lingua';
+        };
+
+        //console.log('ola consola');
+        //alert('ola mundo');
+
+        //codigo para esc rever html section output
+        let output = document.getElementById('output');
+        output.innerHTML = texto;
+    </script>
+    
+</body>
+</html>

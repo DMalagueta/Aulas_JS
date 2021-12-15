@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript Intro</title>
     <style>
-        /* section{
+         .lindo{
             font-size: 2em;
             color: tomato;
-        } */
+        } 
     </style>
 </head>
 <body>
@@ -33,11 +33,20 @@
         //ES6 template literalls, e multiline strings
         nomeCompleto = `O meu nome é: ${nome} ${apelido} e tenho a nacionalidade ${nacionalidade}.`;
 
+        nomeCompleto = `
+                    <p>O meu nome é: </p>
+                    <h2 class='lindo'> ${nome} ${apelido} </h2>
+                    <h3> E tenho a nacionalidade ${nacionalidade} </h3>
+        `;
 
-
+        let texto = nome.length; //propriedade
+        texto = nome.toUpperCase();
+        texto = nome.charAt(2);
+        texto = nome.indexOf('o');
+        
         //codigo para esc rever html section output
         let output = document.getElementById('output');
-        output.innerHTML = nomeCompleto;
+        output.innerHTML = texto;
     </script>
     
 </body>

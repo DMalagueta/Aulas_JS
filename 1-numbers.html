@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Intro</title>
+
+    <style>
+        section{
+            font-size: 2em;
+            color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1> Javascript - Numbers</h1>
+    <section id="output">...</section>
+
+    <script>
+        // Dados Primitivos - numbers
+
+        var anoAtual; //declarar a variavel
+        anoAtual = 2021;
+
+        let dataNascimento = 1990;
+
+        let x, y, idade, resultado;
+        // anoAtual = 2000;
+
+        idade = anoAtual - dataNascimento;
+
+        // Operadores numericos
+        x = 15;
+        y = 4;
+
+        resultado = x + y; // sum
+        resultado = x - y; 
+        resultado = x * y; 
+        resultado = x / y; 
+        resultado = x ** y; //es9 - potencia
+
+        resultado = x % y; //Modulo (resto da divisão)
+
+        // Incrementar, Decrementar valores
+        x = x + 1;
+        x++;
+        x += 3;
+
+        x--;
+        x -= 5;
+
+        x *= 2;
+
+        resultado = 2 + 3 * 2;
+        resultado = (2 + 3) * 2;
+
+
+        // Codigo para esc rever html section output
+        let output = document.getElementById('output');
+        output.innerHTML = resultado;
+
+
+    </script>
+    
+</body>
+</html>

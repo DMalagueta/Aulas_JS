@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Intro</title>
+    <style>
+        /* section{
+            font-size: 2em;
+            color: tomato;
+        } */
+    </style>
+</head>
+<body>
+    <h1> Javascript - Strings</h1>
+    <section id="output">...</section>
+
+    <script>
+        let nome = "Diogo";
+        let apelido = 'Malagueta';
+        let nacionalidade = `Portuguesa`; //ES6 (Backticks)
+
+        let nomeCompleto = nome + " " + apelido; // Concatenar strings
+
+        nomeCompleto = "O meu Nome é " + nome + " " + apelido + " e tem a nacionalidade " + nacionalidade //ES5 
+
+        nomeCompleto = "O meu nome é: <br />";
+        nomeCompleto += nome;
+        nomeCompleto += " ";
+        nomeCompleto += apelido;
+
+        //ES6 template literalls, e multiline strings
+        nomeCompleto = `O meu nome é: ${nome} ${apelido} e tenho a nacionalidade ${nacionalidade}.`;
+
+
+
+        //codigo para esc rever html section output
+        let output = document.getElementById('output');
+        output.innerHTML = nomeCompleto;
+    </script>
+    
+</body>
+</html>

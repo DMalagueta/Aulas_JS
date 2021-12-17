@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Intro</title>
+    <style>
+        section{
+            font-size: 2em;
+            color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1> Javascript - exercicio 1.2</h1>
+    <section>
+        <p id="output">...</p>
+    </section>
+
+    <script>
+
+        let x = Number(prompt("numero"));
+        let y = Number(prompt("numero"));
+
+        let soma = x + y;
+        let subtracao = x - y;
+        let multiplicacao = x * y;
+        let divisao = x / y;
+
+        let resultado = `Soma: ${soma} <br> Subtracao: ${subtracao}<br> Multiplicação: ${multiplicacao}<br> Divisão: ${divisao}`;
+
+        //codigo para esc rever html section output
+        let output = document.getElementById('output');
+        output.innerHTML = resultado;
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Intro</title>
+    <style>
+        section{
+            font-size: 2em;
+            color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1> Javascript - exercicio 1</h1>
+    <section id="output">...</section>
+
+    <script>
+
+        let x = Number(prompt("numero"));
+        let y = Number(prompt("numero"));
+        let operadorNumerico = prompt("Operador Numerico");
+        let resultado;
+
+        switch (operadorNumerico){
+            case '+': resultado = x + y;
+                break;
+
+            case '-': resultado = x - y;
+                break;
+
+            case '*': resultado = x * y;
+                break;
+
+            case '/': resultado = x / y;
+                break;
+
+            default: resultado = 'Não conheço esse operador';
+
+        }
+        
+        
+
+        //codigo para esc rever html section output
+        let output = document.getElementById('output');
+        output.innerHTML = resultado;
+    </script>
+    
+</body>
+</html>

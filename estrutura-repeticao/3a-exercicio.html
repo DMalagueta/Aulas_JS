@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Intro</title>
+    <style>
+        section{
+            font-size: 2em;
+            color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1> Javascript - template</h1>
+    <section id="output">...</section>
+
+    <script>
+        
+        //Gera um numero aleatorio entre 0 e 1
+        /* let numAl = Math.random();
+        let numEntre0e20 = Math.random()*20;
+        let numInteiroEntre0e20 = Math.round(Math.random()*20);
+        Math.round() , Math.floor(), Math.ceil */
+
+        /* Math.round (Math.random() * (vf-vi) + vi) */
+        let numAleatorio = Math.round(Math.random()*20);
+        console.log(numAleatorio);
+        
+        let resultado = '';
+
+        let numTentativas = 1;
+
+        let numero = Number(prompt("numero entre 0 e 20"));
+
+        while (numero !== numAleatorio){
+            if(numero < numAleatorio){
+                alert(`O numero ${numero} é demasiado baixo`);
+            } else{
+                alert(`O numero ${numero} é demasiado alto`);
+            }
+
+            numero = Number(prompt("insira novo numero entre 0 e 20"));
+            numTentativas ++;
+        }
+
+        
+        resultado=` <h2> Parabens !!! </h2>
+                    <h3> Acertou no numero ${numero} tentativas: ${numTentativas} </h3>
+            `;
+
+
+
+
+
+        //codigo para esc rever html section output
+        let output = document.getElementById('output');
+        output.innerHTML = resultado;
+    </script>
+    
+</body>
+</html>

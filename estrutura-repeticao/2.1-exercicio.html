@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Intro</title>
+    <style>
+        section{
+            font-size: 2em;
+            color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1> Javascript - template</h1>
+    <section id="output">...</section>
+
+    <script>
+        let resultado = '';
+
+        // numero1 é inferior ao numero 2
+        let num1 = Number(prompt("numero um"));
+        let num2 = Number(prompt("numero 2"));
+
+        let soma = 0;
+        let contador = 0;
+
+        while (num1 <= num2){
+            soma += num1;
+            contador++;
+            num1++;
+
+        }
+
+        resultado=`<h2>Soma dos numeros: ${soma} </h2>
+                <h2>Soma dos numeros: ${contador} </h2>
+        `;
+
+
+
+
+
+        //codigo para esc rever html section output
+        let output = document.getElementById('output');
+        output.innerHTML = resultado;
+    </script>
+    
+</body>
+</html>

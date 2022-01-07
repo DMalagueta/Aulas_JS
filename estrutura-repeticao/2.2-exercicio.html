@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Intro</title>
+    <style>
+        section{
+            font-size: 2em;
+            color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1> Javascript - template</h1>
+    <section id="output">...</section>
+
+    <script>
+        let resultado = '';
+
+        // numero1 é inferior ao numero 2
+        let num1 = Number(prompt("numero um"));
+        let num2 = Number(prompt("numero 2"));
+
+        let n1 = num1;
+        let n2 = num2;
+
+        let listaPares = '';
+
+        while (n1 < n2) {
+            if( n1 % 2 == 0){
+                listaPares += `<br> ${n1}`;
+            }
+            n1++;
+        }
+        
+
+        resultado=`
+            <h2>numeros pares entre o numero ${num1} e o numero ${num2}</h2>
+            <p>${listaPares}</p>
+        `;
+
+
+
+
+
+        //codigo para esc rever html section output
+        let output = document.getElementById('output');
+        output.innerHTML = resultado;
+    </script>
+    
+</body>
+</html>

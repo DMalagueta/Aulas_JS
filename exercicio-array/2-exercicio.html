@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Intro</title>
+    <style>
+        section{
+            font-size: 1em;
+            color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1> Javascript - Arrays</h1>
+    <section id="output">...</section>
+
+    <script>
+
+        let disciplinas = '';
+        let resultado = '';
+        let media = '';
+        let sum = 0;
+        let passou = '';
+
+        let nomeAluno = prompt('nome aluno');
+        let numDisciplina = Number(prompt('Numero de disciplinas'));
+
+
+        let disciplina = [];
+
+        for(let i=0; i < numDisciplina; i++){
+
+            let nota = Number(prompt(`nota do ${i+1} disciplina`));    
+
+            disciplina.push(nota);
+
+            disciplinas += `<p>Disciplina ${i+1}: ${nota}</p>`;
+
+        }
+
+        for(let i=0; i < disciplina.length; i++){
+                sum += disciplina[i];
+        }
+
+        console.log(sum);
+
+        media = sum / numDisciplina;
+        
+        if(media < 10){
+            passou = `O aluno encontra-se reprovado`;
+        }
+        else{
+            passou = `O aluno encontra-se aprovado`;
+        }
+        
+
+       /*  for (nota of disciplina) {
+            media += `<p>Nota: ${nota}</p>
+            `;
+        } */
+        
+        resultado = `<h2>Nome: ${nomeAluno}</h2>
+                    <p>Numero disciplina: ${numDisciplina}</p>
+                    ${disciplinas}
+                    <p>Media: ${media} ${passou}</p>
+                    
+        `;
+        
+        
+
+        //codigo para esc rever html section output
+        let output = document.getElementById('output');
+        output.innerHTML = resultado;
+    </script>
+    
+</body>
+</html>

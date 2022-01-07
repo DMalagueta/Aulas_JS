@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Intro</title>
+    <style>
+        section{
+            font-size: 2em;
+            color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1> Javascript - template</h1>
+    <section id="output">...</section>
+
+    <script>
+        let resultado = '';
+
+        /// For
+       /*  for (var i = 0; i < 10; i++) {
+            resultado += `<br> ${i}`;
+        } */
+
+        /* for (var i = 10; i >= 0; i--) {
+            resultado += `<br> ${i}`;
+        } */
+
+        ///while 
+
+        let i=0;
+
+        while (i<10){
+            resultado+=`<br> ${i}`;
+            i++;
+        }
+
+        
+
+        //codigo para esc rever html section output
+        let output = document.getElementById('output');
+        output.innerHTML = resultado;
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Intro</title>
+    <style>
+        /* section{
+            font-size: 2em;
+            color: darkgreen;
+        } */
+    </style>
+</head>
+<body>
+    <h1> Javascript - Functions</h1>
+    <section id="output">...</section>
+
+    <script>
+
+        let numeros = [1, 2, 3, 4, 5];
+
+        // criar uma nova array com os duplicados da array numeros 
+        let duplos = [];
+        for (let i = 0; i < numeros.length; i++){
+            let duplo = numeros[i] * 2;
+            duplos.push(duplo);
+        }
+
+        console.log('Numeros: ', numeros);
+        console.log('Duplos: ', duplos);
+
+        // Metodos de iteracao de Arrays
+        /* let triplos = numeros.map(function(num){ 
+            return num*3;
+        }); */
+
+
+        let triplos = numeros.map( num => num*3);
+
+        console.log('Triplos: ', triplos);
+
+        ///// Array.filter()
+        let cervejas = ["Super Bock", "Guiness", "Calrsberg", "Heineken", "Sagres", "Corona"];
+
+        let cervejas7Letras = cervejas.filter( cerveja => cerveja.length > 7 );
+        console.log('Cervejas + 7 letras: ', cervejas7Letras);
+
+        let cervejasSemCorona = cervejas.filter( cerveja => cerveja !== 'Corona' );
+        console.log('CervejasSemCorona: ', cervejasSemCorona);
+
+        //find(), every(), some(), reduce()
+
+        //codigo para esc rever html section output
+        let output = document.getElementById('output');
+        output.innerHTML = "<h2>Ola Universo......</h2>";
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Intro</title>
+    <style>
+        /* section{
+            font-size: 2em;
+            color: darkgreen;
+        } */
+    </style>
+</head>
+<body>
+    <h1> Javascript - Functions</h1>
+    <section id="output">...</section>
+
+
+    <script src="biblioteca/helpers.js"></script>
+    <script>
+
+        let resultado = '';
+
+        // Functions
+
+        /// Function "simples"
+        
+
+        // Hoisting....
+        // sayHello();
+
+        // Function declaration 
+        function sayHello(){
+            console.log("----------");
+            console.log("Ola diogo");
+
+        }
+
+        sayHello();
+
+        // Function expression
+        let hello = function(){
+            console.log("Hello from my function expression");
+        }
+
+        hello();
+
+        // Function com parametros
+        // ES6, default values
+        // function sayHelloName(nome="jose", apelido="maria")
+        function sayHelloName (nome, apelido){
+            console.log("----------");
+            console.log(`Ola ${nome} ${apelido}`);
+        }
+
+        sayHelloName('diogo','malagueta');
+        sayHelloName('maria','josefina');
+
+        // funcoes que recebem parametros e devolvem resultados 
+
+        /* function getArea (width, height){
+            let area = width * height;
+            return area;
+        } */
+
+        console.log('Area: ', getArea(3, 6));
+        console.log('Area: ', getArea(4, 6));
+
+        //codigo para esc rever html section output
+        let output = document.getElementById('output');
+        output.innerHTML = "<h2>Ola Universo......</h2>";
+    </script>
+    
+</body>
+</html>

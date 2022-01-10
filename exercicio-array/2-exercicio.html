@@ -10,6 +10,15 @@
             font-size: 1em;
             color: darkgreen;
         }
+
+        .reprovado{
+            color:red;
+        }
+
+        .aprovado{
+            color:blue;
+        }
+
     </style>
 </head>
 <body>
@@ -18,57 +27,66 @@
 
     <script>
 
-        let disciplinas = '';
         let resultado = '';
-        let media = '';
-        let sum = 0;
-        let passou = '';
-
-        let nomeAluno = prompt('nome aluno');
-        let numDisciplina = Number(prompt('Numero de disciplinas'));
-
-
-        let disciplina = [];
-
-        for(let i=0; i < numDisciplina; i++){
-
-            let nota = Number(prompt(`nota do ${i+1} disciplina`));    
-
-            disciplina.push(nota);
-
-            disciplinas += `<p>Disciplina ${i+1}: ${nota}</p>`;
-
-        }
-
-        for(let i=0; i < disciplina.length; i++){
-                sum += disciplina[i];
-        }
-
-        console.log(sum);
-
-        media = sum / numDisciplina;
         
-        if(media < 10){
-            passou = `O aluno encontra-se reprovado`;
-        }
-        else{
-            passou = `O aluno encontra-se aprovado`;
-        }
-        
+        // Variaveis
+        let nomeAluno, numDisciplinas, listaNotas, somaNotas, media, listaDisciplinas;
 
-       /*  for (nota of disciplina) {
-            media += `<p>Nota: ${nota}</p>
-            `;
-        } */
+        // Inicializar variaveis
+        nomeAluno = prompt(`Nome do aluno`);
+        numDisciplinas = Number(prompt(`Numero de disciplinas do ${nomeAluno}`));
+        listaDisciplinas = []; // array para guardar lista de disciplinas
+        listaNotas = [];
+        somaNotas = 0;
+        media = 0;
+
+        ///// Logica do meu algoritmos 
+        // Criar estrutura de repetição para registar nome disciplina e nota de cada disciplina 
+
+        for(let i = 0; i < numDisciplinas; i++){
+            let disciplina = prompt(`Qual a ${i+1}ª disciplina`);
+            let nota = Number(prompt(`Que nota teve a ${disciplina}`));
+
+            listaDisciplinas.push(disciplina);
+            listaNotas.push(nota);
+
+            somaNotas += nota;
+
+        }
+
+        // Output dados
+        media = somaNotas / numDisciplinas;
+
+        // Testar inputs
+        console.log(media);
+            
+        // Mostra HTML resultados 
+        resultado = `
+            <h1>Ficha de avaliaçao do aluno: ${nomeAluno}</h1>
+
         
-        resultado = `<h2>Nome: ${nomeAluno}</h2>
-                    <p>Numero disciplina: ${numDisciplina}</p>
-                    ${disciplinas}
-                    <p>Media: ${media} ${passou}</p>
-                    
+        `;
+
+        for( i=0; i < numDisciplinas; i++){
+            resultado += `<h3>${listaDisciplinas[i]} - ${listaNotas[i]}</h3>`;
+        }
+        
+        resultado += `
+            <p>Media Final: ${Math.round(media)}</p>
         `;
         
-        
+        if( media >= 10){
+            resultado += `
+            <hr>
+            <h2 class="aprovado">O aluno ${nomeAluno} foi aprovado com a nota ${Math.round(media)} </h2>
+            `;
+        }
+        else{
+            resultado += `
+            <hr>
+            <h2 class="reprovado">O aluno ${nomeAluno} foi reprovado com a nota ${Math.round(media)} </h2>
+            `;
+        }
 
         //codigo para esc rever html section output
         let output = document.getElementById('output');

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Intro</title>
+    <style>
+        /* section{
+            font-size: 2em;
+            color: darkgreen;
+        } */
+    </style>
+</head>
+<body>
+    <h1> Javascript - Functions</h1>
+    <section id="output">...</section>
+
+    <script>
+
+        function calcularArea(altura, largura){
+            return altura * largura;
+        }
+
+        // Arrow Funtion é uma function expression
+        let calcArea = (alt, larg) => alt * larg;
+        console.log(calcArea(2,2));
+
+        let calcArea2 =  (alt, larg) => {
+            return alt * larg;
+        }
+
+        console.log(calcularArea(2,2));
+        console.log(calcArea2(3,3));
+
+        //codigo para esc rever html section output
+        let output = document.getElementById('output');
+        output.innerHTML = "<h2>Ola Universo......</h2>";
+    </script>
+    
+</body>
+</html>

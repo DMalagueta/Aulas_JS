@@ -39,5 +39,10 @@ let books = [
 ];
 
 for (let index = 0; index < books.length; index++) {
-    console.log(books[index].title, "by" , books[index].author);
+    
+    if (books[index].alreadyRead == true) {
+        console.log("Já leu", books[index].title, "by" , books[index].author);
+    } else {
+        console.log("Não leu", books[index].title, "by", books[index].author);
+    }
 }

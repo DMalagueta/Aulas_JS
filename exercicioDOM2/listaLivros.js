@@ -5,7 +5,9 @@ let ul = document.createElement('ul');
 
 
 h1.textContent = 'A minha Lista de Livros';
+
 body.insertBefore(h1, body.firstChild);
+body.appendChild(ul);
 
 let books = [
     {title:'livro 1', author:'zé ninguem', alreadyRead: true, image:'livros/angular.jpg'},
@@ -14,20 +16,20 @@ let books = [
     {title:'livro 4', author:'zé ninguem3', alreadyRead: false, image:'livros/d3js.png'},
 ];
 
-body.appendChild(ul);
-
 for (let index = 0; index < books.length; index++) {
         let li = document.createElement('li');
         let author = books[index].author;
         let title = books[index].title;
         let image = document.createElement('img');
         image.setAttribute('src', books[index].image);
+        image.setAttribute('style', 'margin:2em 2em 0 2em; border:1em solid black;')
 
         if (books[index].alreadyRead == true) {
-            li.textContent = `Já leu ${title} by ${author}`;
+            li.textContent = `Já leu ${title} by ${author} `;
+            li.setAttribute('style', 'list-style-type: circle;')
         }
         else {
-            li.textContent = `Não leu ${title} by ${author}`;
+            li.textContent = `Não leu ${title} by ${author} `;
         }
 
 

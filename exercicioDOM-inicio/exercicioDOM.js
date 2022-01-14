@@ -4,29 +4,34 @@
 3 - Acrescentar uma tag "span" dentro do "h2", com o numero de itens da lista
 */
 
+// Manipulação lista de itens
 let lista = document.querySelector('ul');
-let h2 = document.querySelector('h2');
+
+// Criar 2 itens
+let novoItemInicio = document.createElement('li');
+novoItemInicio.textContent = 'figos';
 
 let novoItemFim = document.createElement('li');
 novoItemFim.textContent = 'ananas';
 
-lista.insertBefore(novoItemFim, lista.lastChild);
-
-let novoItemInicio = document.createElement('li');
-novoItemInicio.textContent = 'figos';
-
+// Acrescentar item no inicio
 lista.insertBefore(novoItemInicio, lista.firstElementChild);
 
-let items = document.querySelectorAll('li');
+// Acrescentar item no final
+lista.appendChild(novoItemFim);
 
-for (const item of items) {
-    item.className = 'cool';
-    
+// Aplicar a class "cool" a todos os itens da lista
+
+//let items = lista.querySelectorAll('li');
+
+for (const item of lista.children) {
+    /* item.className = 'cool'; */
+    item.classList.add('cool');
 }
 
+// Acrescentar tag span ao h2
 let novoSpan = document.createElement('span');
+novoSpan.textContent = lista.children.length;
 
-novoSpan.textContent = items.length;
-
-h2.insertBefore(novoSpan, h2.firstChild);
+lista.previousElementSibling.appendChild(novoSpan);
 

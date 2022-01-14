@@ -1,0 +1,30 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    border: none;
+}
+
+body {
+    font-family: verdana, arial, helvetica;
+}
+
+img{
+    max-width: 100%;
+}
+
+section.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap:5px;
+}
+
+article {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    padding: .7em;
+
+    border: 1px solid grey;
+}
+

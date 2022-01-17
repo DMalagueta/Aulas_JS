@@ -61,18 +61,9 @@ console.log('================================');
 
 let grid = document.querySelector('section.grid');
 
-livros.map( livro => {
-    grid.innerHTML += `
-        <article>
-            <h1>${livro.title}</h1>
-            <h2>${livro.author}</h2>
-            <img src='livros/${livro.imageUrl}'
-            <p>Already read: ${livro.alreadyRead ? '✓' : '💩'}</p>
-        </article>
-    `;
-});
 
-for (const livro of livros) {
+
+/* for (const livro of livros) {
     grid.innerHTML += `
         <article>
             <h1>${livro.title}</h1>
@@ -82,16 +73,40 @@ for (const livro of livros) {
         </article>
     `;
     
-}
+} */
 
 // operador ternario
-
 let teste = true;
-
 /* if (teste) {
     console.log('verdade');
 }else{
     console.log('falso');
 } */
+
+// Mostrar livros todos
+//mostrarLivros(livros);
+
+//mostrar livros ja lidos
+let livrosJaLidos = livros.filter( livro => livro.alreadyRead == true);
+
+//mostrar livros nao lidos
+let livrosNaoLidos = livros.filter( livro => livro.alreadyRead == false);
+
+// mostrarLivros(livrosNaoLidos)
+
+mostrarLivros(livros);
+
+function mostrarLivros(arrayLivros) {
+    arrayLivros.map( livro => {
+        grid.innerHTML += `
+            <article>
+                <h1>${livro.title}</h1>
+                <h2>${livro.author}</h2>
+                <img src='livros/${livro.imageUrl}'
+                <p>Already read: ${livro.alreadyRead ? '✓' : '💩'}</p>
+            </article>
+        `;
+    });
+}
 
 teste ? console.log('verdade') : console.log('falso');

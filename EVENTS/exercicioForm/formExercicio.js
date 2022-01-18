@@ -6,6 +6,7 @@
 5 - apresentar no H2, inserindo dentro de uma tag <span> o numero de items por comprar
 */
 
+
 // 1 - esconder form
 let form = document.querySelector('form');
 form.setAttribute('style', 'display:none');
@@ -33,12 +34,31 @@ function addEvent(e){
     form.setAttribute('style', 'display:none');
     newItem.removeAttribute('style', 'display:none');
     description.value = '';
+    nrItems();
 };
 
-// 4 
-let items = ul.children;
+// 4 - verificar class complete e adicionar caso nao tenha
+let items = document.querySelectorAll('li');
 
-items.addEventListener('click', , false);
+for (const item of items) {
+    item.addEventListener('click', () => {
+        if (item.classList.contains('complete')){
+            item.remove();
+            nrItems();
+        } else{
+            item.classList.add('complete');
+        }
+    }, false);
+}
 
+// 5 - apresentar o numero de items no h2 
+let span = document.createElement('span');
+let h2 = document.querySelector('h2');
 
+function nrItems(){
+    span.textContent=ul.childElementCount;
+    h2.appendChild(span);
+}
+
+nrItems();
 

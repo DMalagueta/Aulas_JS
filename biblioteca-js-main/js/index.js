@@ -1,22 +1,3 @@
-/* 
-let livro1 = { 
-    title: 'Angular com typescript',
-    author: 'Yakov',
-    alreadyRead: true, 
-    imageUrl: 'angular.jpg'           
-}
-
-let livro2 = { 
-    title: 'Blockchain com javascript',
-    author: 'Someone else',
-    alreadyRead: false, 
-    imageUrl: 'blockchain.jpg'           
-}
-
-let livros = [livro1, livro2];
-
-console.log(livros); */
-
 // Modelo de dados a ser apresentado na pagina
 let livros = [
     { 
@@ -51,37 +32,8 @@ let livros = [
     }
 ];
 
-/* for (const livro of livros) {
-    console.log(`${livro.title} - ${livro.author}`)
-} */
-
-console.log('================================');
-livros.map(livro => console.log(`${livro.title} - ${livro.author} `));
-console.log('================================');
 
 let grid = document.querySelector('section.grid');
-
-
-
-/* for (const livro of livros) {
-    grid.innerHTML += `
-        <article>
-            <h1>${livro.title}</h1>
-            <h2>${livro.author}</h2>
-            <img src='livros/${livro.imageUrl}'
-            <p>Already read: ${livro.alreadyRead ? '✓' : '💩'}</p>
-        </article>
-    `;
-    
-} */
-
-// operador ternario
-let teste = true;
-/* if (teste) {
-    console.log('verdade');
-}else{
-    console.log('falso');
-} */
 
 // Mostrar livros todos
 //mostrarLivros(livros);
@@ -104,9 +56,23 @@ function mostrarLivros(arrayLivros) {
                 <h2>${livro.author}</h2>
                 <img src='livros/${livro.imageUrl}'
                 <p>Already read: ${livro.alreadyRead ? '✓' : '💩'}</p>
+                <button id="livro${livro.id}">Delete</button>
             </article>
         `;
     });
 }
 
-teste ? console.log('verdade') : console.log('falso');
+let remove = document.querySelectorAll('button');
+for (const item of remove) {
+    item.addEventListener('click',removeBook, false);
+}
+
+
+function removeBook(e) {
+    e.preventDefault();
+    let id = e.target.id;
+    let array = livros.filter(l => l.id !== id);
+    console.log(array);
+}
+
+

@@ -3,11 +3,26 @@ let username = document.getElementById('username');
 let password = document.getElementById('password');
 let apelido = document.getElementById('apelido');
 
-username.addEventListener('blur', check, false);
-apelido.addEventListener('blur', check,false);
-password.addEventListener('blur', check, false);
+username.addEventListener('blur',(e) =>{ check(e,5)}, false);
+apelido.addEventListener('blur', (e) =>{ check(e,8)},false);
+password.addEventListener('blur', (e) =>{ check(e,4)}, false);
 
-function check(e) {
+function check(e, min=5) {
+    //console.log(e);
+    //debugger;
+
+    //console.log(e.target);
+    let campoAValidar = e.target;
+    let msgDiv = campoAValidar.nextElementSibling;
+
+    if( campoAValidar.value.length < min ) {
+        msgDiv.textContent = `Tem que ter mais de ${min} caracteres`;
+    } else {
+        msgDiv.textContent = '';
+    }
+}
+
+/* function check(e) {
     //console.log(e);
     //debugger;
 
@@ -20,4 +35,4 @@ function check(e) {
     } else {
         msgDiv.textContent = '';
     }
-}
+} */

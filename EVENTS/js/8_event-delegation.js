@@ -13,7 +13,7 @@ function eliminarItem(e) {
     
     e.preventDefault();
 
-    let itemAEliminar = e.target.lastElementChild;
+    let itemAEliminar = e.target.parentElement;
     lista.removeChild(itemAEliminar);
     console.log(itemAEliminar);
 

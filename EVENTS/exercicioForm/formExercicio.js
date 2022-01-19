@@ -11,7 +11,7 @@
 let form = document.querySelector('form');
 form.setAttribute('style', 'display:none');
 
-// 2 - Click no buttao
+// 2 - Click no buttao newitem
 let showForm = document.getElementById('showForm');
 let newItem = document.getElementById('newItemButton');
 
@@ -25,12 +25,12 @@ let addButton = document.querySelector('#addButton');
 let description = document.getElementById('itemDescription');
 
 addButton.addEventListener('click', addEvent, false)
-let ul = document.querySelector('ul');
+let lista = document.querySelector('ul');
 function addEvent(e){
     e.preventDefault();
     let li = document.createElement('li');
     li.textContent = description.value;
-    ul.appendChild(li);
+    lista.appendChild(li);
     form.setAttribute('style', 'display:none');
     newItem.removeAttribute('style', 'display:none');
     description.value = '';
@@ -38,25 +38,39 @@ function addEvent(e){
 };
 
 // 4 - verificar class complete e adicionar caso nao tenha
-let items = document.querySelectorAll('li');
 
-for (const item of items) {
+lista.addEventListener('click', clickEliminar, false);
+
+function clickEliminar(e) {
+    e.preventDefault();
+    let item = e.target;
+    if (item.classList.contains('complete')){
+        lista.removeChild(item);
+        nrItems();
+    } else{
+        item.classList.add('complete');
+    }
+}
+
+/* for (const item of items) {
     item.addEventListener('click', () => {
+        let itemAEliminar = item.target.parentElement;
         if (item.classList.contains('complete')){
-            item.remove();
+            ul.removeChild(itemAEliminar);
             nrItems();
         } else{
             item.classList.add('complete');
         }
     }, false);
-}
+} */
+
 
 // 5 - apresentar o numero de items no h2 
 let span = document.createElement('span');
 let h2 = document.querySelector('h2');
 
 function nrItems(){
-    span.textContent=ul.childElementCount;
+    span.textContent=lista.childElementCount;
     h2.appendChild(span);
 }
 

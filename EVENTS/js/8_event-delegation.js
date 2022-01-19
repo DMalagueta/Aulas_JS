@@ -13,8 +13,9 @@ function eliminarItem(e) {
     
     e.preventDefault();
 
-    let itemAEliminar = e.target.parentElement;
+    let itemAEliminar = e.target.lastElementChild;
     lista.removeChild(itemAEliminar);
+    console.log(itemAEliminar);
 
     //console.log(itemAEliminar)
     //console.log(e);

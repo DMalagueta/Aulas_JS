@@ -20,15 +20,29 @@ h1 {
     margin: 15px;
 }
 
-
+button{
+    padding: 5px 10px;
+    background-color: darkgrey;
+    color: white;
+    border-radius: 20%;
+}
 section.grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 5px;
 }
 
-article {
+section.filters {
+    background-color: aquamarine;
+    border-top: 1px solid olive;
+    padding: 20px;
+}
 
+section.filters input {
+    margin-left: 15px;
+}
+
+section.grid article {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,4 +50,27 @@ article {
     padding: .7em;
     
     border: 1px solid gray;
+}
+
+.show{
+    display:block;
+}
+
+.hide{
+    display:none;
+}
+
+div.popup{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.288);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+}
+
+.popup.open {
+    display:flex;
 }

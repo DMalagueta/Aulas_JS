@@ -59,6 +59,19 @@ section.grid article {
     border: 1px solid gray;
 }
 
+section.form article {
+    display: flex;
+    justify-content: center;
+    padding: .4em;
+    border-top: 1px solid gray;
+    background-color: rgba(128, 128, 128, 0.466);
+    text-align: center;
+}
+
+section.form table td{
+    padding:10px;
+}
+
 div.popup{
     position: absolute;
     background: rgba(0, 0, 0, 0.288);

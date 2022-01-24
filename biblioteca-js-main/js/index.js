@@ -52,26 +52,20 @@ function init(){
 
     let filterRead = document.querySelector('#filterRead');
     let filterNotRead = document.querySelector('#filterNotRead');
-    let filterTitle = document.querySelector('#filterTitle');
     
     let popup = document.querySelector('div.popup');
+
+    let addArray = document.querySelector('#addArray')
 
     // BLOCO EVENTOS APP
     filters.addEventListener('change', filterEvents, false);
     grid.addEventListener('click', gridEvents, false);
     popup.addEventListener('click', popupClose, false);
     filters.addEventListener('input', filterEvents, false);
+    addArray.addEventListener('click', addBook, false);
 
     /// LOGICA DO MEU ALGORITMO
     mostrarLivros(livros);
-
-
-
-
-
-
-
-
 
 
     /// BLOCO METODOS DE APLICACAO
@@ -88,8 +82,9 @@ function init(){
             filterRead.checked = false;
         }
         if (e.target.id === 'filterTitle') {
-            filtrarTitulo(e.target.value);
-            console.log(e.target.value);
+            let input = e.target.value;
+            filtrarTitulo(input);
+            console.log(input)
         }
 
     }
@@ -108,7 +103,15 @@ function init(){
             popupImg(img); 
             popup.classList.add('open');
         }
-         
+    }
+
+
+    /// BLOCO FUNCIONALIDADES APP
+    function addBook(e){
+        e.preventDefault();
+        let title = document.getElementById('title').value;
+        let author = document.getElementById('author').value;
+        let jaLido = document.getElementById('jaLido').checked;
     }
 
     function popupClose(e){
@@ -118,7 +121,6 @@ function init(){
         }
     }
 
-    /// BLOCO FUNCIONALIDADES APP
     function popupImg(img){
         let imgSrc = document.querySelector('div img');
         imgSrc.src = `livros/${img}`;
@@ -132,11 +134,14 @@ function init(){
     }
 
     function filtrarTitulo(input){
-        if (input == true) {
-            let tituloLivro = livros.filter( livro => livro.title === input);
-            console.log(tituloLivro);
+            if (input !== '') {
+                let tituloLivro = livros.filter( livro => livro.title === input);
+                mostrarLivros(tituloLivro);
+            }
+            else{
+                mostrarLivros(livros);
+            }
             
-        }
     }
 
     function filtrarLivrosLidos(checked){

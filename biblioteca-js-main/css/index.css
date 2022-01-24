@@ -26,6 +26,7 @@ button{
     color: white;
     border-radius: 20%;
 }
+
 section.grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -42,22 +43,20 @@ section.filters input {
     margin-left: 15px;
 }
 
+section.filters input[type="text"] {
+    padding: 2px;
+    border: 1px solid olive;
+    text-align: center;
+    margin-left:20px;
+    color: olive;
+}
+
 section.grid article {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     padding: .7em;
-    
     border: 1px solid gray;
-}
-
-.show{
-    display:block;
-}
-
-.hide{
-    display:none;
 }
 
 div.popup{
@@ -73,4 +72,5 @@ div.popup{
 
 .popup.open {
     display:flex;
+    cursor: pointer;
 }

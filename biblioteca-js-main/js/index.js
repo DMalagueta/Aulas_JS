@@ -52,13 +52,15 @@ function init(){
 
     let filterRead = document.querySelector('#filterRead');
     let filterNotRead = document.querySelector('#filterNotRead');
+    let filterTitle = document.querySelector('#filterTitle');
     
     let popup = document.querySelector('div.popup');
 
     // BLOCO EVENTOS APP
     filters.addEventListener('change', filterEvents, false);
     grid.addEventListener('click', gridEvents, false);
-
+    popup.addEventListener('click', popupClose, false);
+    filters.addEventListener('input', filterEvents, false);
 
     /// LOGICA DO MEU ALGORITMO
     mostrarLivros(livros);
@@ -85,6 +87,10 @@ function init(){
             filtrarLivrosNaoLidos(e.target.checked);
             filterRead.checked = false;
         }
+        if (e.target.id === 'filterTitle') {
+            filtrarTitulo(e.target.value);
+            console.log(e.target.value);
+        }
 
     }
 
@@ -100,16 +106,20 @@ function init(){
             let img = e.target.dataset.imggr;
             console.log('imagem', img);
             popupImg(img); 
-            popup.classList.toggle('open');
+            popup.classList.add('open');
         }
-
-        console.log(e.target);
          
+    }
+
+    function popupClose(e){
+        console.log(e.target);
+        if (e.target.className === 'popup open'){
+            popup.classList.remove('open');
+        }
     }
 
     /// BLOCO FUNCIONALIDADES APP
     function popupImg(img){
-        console.log(img);
         let imgSrc = document.querySelector('div img');
         imgSrc.src = `livros/${img}`;
     }
@@ -119,6 +129,14 @@ function init(){
         let novosLivros = livros.filter( livro => livro.id != id );
         livros = novosLivros;
         mostrarLivros(novosLivros);
+    }
+
+    function filtrarTitulo(input){
+        if (input == true) {
+            let tituloLivro = livros.filter( livro => livro.title === input);
+            console.log(tituloLivro);
+            
+        }
     }
 
     function filtrarLivrosLidos(checked){

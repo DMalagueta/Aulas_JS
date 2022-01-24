@@ -10,41 +10,32 @@
 <body>
     <h1>A minha Biblioteca de Livros</h1>
 
-    <section class="form">
+    <section class="addEditBook">
         <article>
             <form>
-                <table>
-                    <tr>
-                        <td><label for="title">Titulo</label></td>
-                        <td><input type="text" id="title"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="author">Autor</label></td>
-                        <td><input type="text" id="author"><br></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <input type="checkbox" id="jaLido">
-                            <label for="jaLido">Ja lido</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label for="imagem">Imagem</label></td>
-                        <td><input type="text" id="imagem"><br></td>
-                    </tr>
-                    <tr>
-                        <td><label for="imagemGr">ImagemGr</label></td>
-                        <td><input type="text" id="imagemGr"><br></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><button type="submit" id="addArray">Acrescentar</button></td>
-                    </tr>
-                </table>
-                
-                <br>
-                
-                
-
+                <div>
+                    <label for="title">Title:</label>
+                    <input type="text" id="title">
+                </div>
+                <div>
+                    <label for="author">Author:</label>
+                    <input type="text" id="author">
+                </div>
+                <div>
+                    <input type="checkbox" id="alreadyRead">
+                    <label for="title">Já lido</label>
+                </div>
+                <div>
+                    <label for="imgUrl">Miniatura:</label>
+                    <input type="text" id="imgUrl">
+                </div>
+                <div>
+                    <label for="imgUrlGr">Imagem gr</label>
+                    <input type="text" id="imgUrlGr">
+                </div>
+                <div class="buttons">
+                    <button id="submitBtn">Acrescentar</button>
+                </div>
             </form>
         </article>
     </section>
@@ -53,11 +44,19 @@
         <h1>Filtros / Pesquisas</h1>
 
         <article>
-            <input type="checkbox" id="filterRead">
-            <label for="filterRead">Ja lidos</label>
-            <input type="checkbox" id="filterNotRead">
-            <label for="filterNotRead">Não lidos</label>
-            <input type="text" id="filterTitle" placeholder="Titulo">
+            <div>
+                <input type="checkbox" id="filterRead">
+                <label for="filterRead">Ja lidos</label>
+                <input type="checkbox" id="filterNotRead">
+                <label for="filterNotRead">Não lidos</label>
+                
+            </div>
+
+            <div class="search" id="search">
+                <label for="filterTitle">Pesquisar Titulo</label>
+                <input type="text" id="filterTitle" placeholder="Titulo">
+            </div>
+
         </article>
         
     </section>
@@ -70,7 +69,7 @@
     </div>
 
     
-
+    <script src="js/data.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>

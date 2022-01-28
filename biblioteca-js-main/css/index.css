@@ -100,3 +100,15 @@ div.popup{
     cursor: pointer;
     align-items: center;
 }
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+.atualizar{
+    opacity: .5;
+}

@@ -16,8 +16,14 @@ function init(){
     let title = document.querySelector('#title');
     let author = document.querySelector('#author');
     let alreadyRead = document.querySelector('#alreadyRead');
-    let imgUrl = document.querySelector('#imgUrl');
+    let imageUrl = document.querySelector('#imgUrl');
     let imageUrlGr = document.querySelector('#imgUrlGr');
+
+    // BOTOES DE ATUALIZAR E ACRESCENTAR LIVRO
+    let submitBtn = document.querySelector('#submitBtn');
+    let updateBtn = document.querySelector('#updateBtn');
+
+    let livroAEditar;
 
     // BLOCO EVENTOS APP
     filters.addEventListener('change', filterEvents, false);
@@ -27,6 +33,8 @@ function init(){
     popup.addEventListener('click', popupClose, false);
 
     formBook.addEventListener('submit', criarLivro, false);
+
+    updateBtn.addEventListener('click', updateLivro, false);
 
     /// LOGICA DO MEU ALGORITMO
     mostrarLivros(livros);
@@ -63,9 +71,55 @@ function init(){
             let img = e.target.dataset.imggr;
             popupOpen(img); 
         }
+
+        if (e.target.className === 'editBtn'){
+
+            let id = e.target.dataset.id;
+
+            let livro = e.target.parentElement.parentElement;
+            livro.classList.add('atualizar');
+
+            atualizarLivro(id);
+        }
     }
 
     /// BLOCO FUNCIONALIDADES APP
+    function updateLivro(e){
+        
+        let livrosAtualizados = livros.map( livro => { 
+            if (livro.id === livroAEditar.id){
+                return  {
+                    ...livro,
+                    title: title.value,
+                    author: author.value,
+                    alreadyRead: alreadyRead.checked,
+                    imageUrl: imageUrl.value,
+                    imageUrlGr: imageUrlGr.value,
+                }
+            } else {
+                return livro;
+            }
+        });
+
+        livros = livrosAtualizados;
+        mostrarLivros(livros);
+        formBook.reset(); 
+        
+        e.preventDefault();
+    }
+
+    function atualizarLivro(id){
+        livroAEditar = livros.find( l => l.id == id);
+        title.value = livroAEditar.title;
+        author.value = livroAEditar.author;
+        alreadyRead.checked = livroAEditar.alreadyRead;
+        imageUrl.value = livroAEditar.imageUrl;
+        imageUrlGr.value = livroAEditar.imageUrlGr;
+
+        submitBtn.className = 'hide';
+        updateBtn.className = 'show';
+    }
+
     function criarLivro(e){
         e.preventDefault();
         let id = new Date().getTime();
@@ -75,23 +129,14 @@ function init(){
             title.value,
             author.value,
             alreadyRead.checked,
-            imgUrl.value,
-            imgUrlGr.value
+            imageUrl.value,
+            imageUrlGr.value
         );
         
         livros.push(livro);
         mostrarLivros(livros);
+        formBook.reset();
         console.log(livro);
-    }
-
-    function addBook(e){
-        e.preventDefault();
-        let title = document.getElementById('title').value;
-        let author = document.getElementById('author').value;
-        let jaLido = document.getElementById('jaLido').checked;
-        
-        console.log(livros)
-
     }
 
     function filtrarTitulo(input){

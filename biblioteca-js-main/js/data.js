@@ -2,12 +2,14 @@ class Livro{
     constructor(
         id, 
         title,
+        author,
         alreadyRead,
         imageUrl,
         imageUrlGr
     ){
         this.id          = id;
         this.title       = title;
+        this.author      = author;
         this.alreadyRead = alreadyRead;
         this.imageUrl    = imageUrl;
         this.imageUrlGr  = imageUrlGr;

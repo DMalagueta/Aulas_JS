@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio Fetch</title>
+    <style>
+        section.info{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-auto-rows: 250px;
+            gap: 3px;
+        }
+
+        section.info article{
+            border: 1px solid darkslategray;
+            background-color: lightgray;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        section.info article img{
+            border-radius: 50%;
+            max-width: 20%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercicio Promises - Fetch</h1>
+    <section id="info" class="info"></section>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', init, false);
+        function init() {
+
+            let info = document.getElementById('info');
+            let utilizadores = [];
+
+            fetch('pessoas.json')
+                .then( response => response.json())
+                .then( data => {
+
+                    utilizadores = data
+                    console.log(utilizadores)
+                    mostrarUtilizadoresFemininos();
+                })
+
+
+            function mostrarUtilizadoresFemininos(){
+                utilizadores.map( user => {
+
+                    if( user.gender == 'female'){
+                        info.innerHTML += `
+                            <article>
+                                <img src="${user.picture.large}">
+                                <h1>${user.name.first} ${user.name.last}</h1>
+                                <h3>${user.email}</h3>
+                                <p>${user.phone}</p>
+                            </article>
+                        `;}
+                    })
+                
+            }
+        }
+    </script>
+</body>
+</html>

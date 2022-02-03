@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+<body>
+
+    <h1>Promises</h1>
+    
+
+    <script>
+        
+        let promaize = new Promise((resolve, reject) => {
+
+            let confinamento = false;
+            let saldo = 500;
+
+            if (!confinamento && saldo > 400) {
+                resolve('Ir jantar fora...');
+                
+            } else {
+                reject('Levar merenda para Jantar');
+            }
+        });
+
+        promaize
+            .then((val)=>console.log(val))
+            .catch(err => console.log(err))
+            .finally(() => console.log('Executado independentemente da resposta'));
+
+    </script>
+</body>
+</html>

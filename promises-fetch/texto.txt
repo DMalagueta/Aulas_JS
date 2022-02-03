@@ -1,0 +1,1 @@
+um texto qualquer para receber com a fetch api

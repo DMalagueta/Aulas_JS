@@ -1,0 +1,1 @@
+export const sideBar = () => console.log('Foi criado uma instancia do sideBar');

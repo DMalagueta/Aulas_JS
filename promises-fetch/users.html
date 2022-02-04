@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API</title>
+
+    <style>
+        section.info{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-auto-rows: 400px;
+            gap: 3px;
+        }
+
+        section.info article{
+            border: 1px solid darkslategray;
+            background-color: lightgray;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content:space-around;
+        }
+
+        section.info img{
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Lista de utilizadores</h1>
+
+    <section class="info" id="info">
+    </section>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', init, false);
+
+        function init() {
+            let info = document.getElementById('info');
+            
+            let users = [];
+            let femaleUsers = [];
+
+            fetch('https://randomuser.me/api/?results=30')
+                .then(response => response.json())
+                .then(data => {
+                    users = data.results;
+                    femaleUsers = users.filter(user => user.gender === 'female');
+                    console.log(femaleUsers);
+
+                    for (const user of femaleUsers) {
+
+                        let {
+                            name:{first,last},
+                            picture:{large},
+                            email,
+                            phone,
+                            location:{city}
+                            } = user;
+
+
+
+                        info.innerHTML += `
+                            <article>
+                                <img src="${large}" alt="${first} ${last}">
+                                <h1>${first} ${last}</h1>
+                                <p>${email}</p>
+                                <h3>${phone}</h3>
+                                <h2>${city}</h2>
+                                
+                            </article>
+                        
+                        `;
+                    }
+                })
+
+
+        }
+    </script>
+</body>
+</html>

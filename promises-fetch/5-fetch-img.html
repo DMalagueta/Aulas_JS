@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API IMAGE</title>
+</head>
+<body>
+
+    <h1>Fetch api IMAGE</h1>
+    <section id="info"></section>
+
+    <script>
+        let info = document.getElementById('info');
+        fetch('https://picsum.photos/500/400')
+            .then(response => response.blob())
+            .then(data => {
+                
+                let image = new Image();
+                let imgUrl= URL.createObjectURL(data);
+                image.src = imgUrl;
+                info.appendChild(image);
+            })
+
+    </script>
+</body>
+</html>

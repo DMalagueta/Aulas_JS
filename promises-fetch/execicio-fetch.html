@@ -53,8 +53,6 @@
         <button id="allBtn">Mostrar Todos</button>
         <button id="maleBtn">Homens</button>
         <button id="femaleBtn">Mulheres</button>
-        
-    
     </section>
     <section id="info" class="info"></section>
 
@@ -81,7 +79,6 @@
             fetch('pessoas.json')
                 .then( response => response.json())
                 .then( data => {
-
                     utilizadores = data;
                     mostrarUtilizadores();
             })

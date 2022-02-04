@@ -6,24 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercicio Fetch</title>
     <style>
+        body {
+            text-align: center;
+            font-family: "Helvetica Neue",Helvetica,Arial;
+        }
+
         section.info{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            grid-auto-rows: 250px;
+            /* grid-auto-rows: 270px; */
             gap: 3px;
         }
 
         section.info article{
-            border: 1px solid darkslategray;
+            border: 3px solid darkslategray;
             background-color: lightgray;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            text-align:center;
+            padding:0.7em;
+            border-radius:10%;
         }
 
         section.info article img{
             border-radius: 50%;
-            max-width: 20%;
+            max-width: 30%;
+            border: 2px solid darkslategray;
+        }
+
+        section.info article hr{
+            border: 1px solid darkslategray;
         }
     </style>
 </head>
@@ -43,26 +53,37 @@
                 .then( response => response.json())
                 .then( data => {
 
-                    utilizadores = data
-                    console.log(utilizadores)
+                    utilizadores = data;
                     mostrarUtilizadoresFemininos();
                 })
 
 
             function mostrarUtilizadoresFemininos(){
-                utilizadores.map( user => {
 
-                    if( user.gender == 'female'){
-                        info.innerHTML += `
+               let female = utilizadores.filter(user => user.gender == 'female');
+
+                female.map ( user => {
+
+                    let {
+                        picture:{large},
+                        name:{first, last},
+                        email,
+                        phone,
+                        location:{city, timezone:{offset}}
+                    } = user;
+
+                    info.innerHTML += `
                             <article>
-                                <img src="${user.picture.large}">
-                                <h1>${user.name.first} ${user.name.last}</h1>
-                                <h3>${user.email}</h3>
-                                <p>${user.phone}</p>
+                                <img src="${large}">
+                                <h1>${first} ${last}</h1>
+                                <hr>
+                                <h4>${email}</h4>
+                                <p>${phone} </p>
+                                <p><strong>City:</strong> ${city} <strong>Timezone:</strong> ${offset}</p>
                             </article>
-                        `;}
-                    })
-                
+                        `;
+                }) 
+            
             }
         }
     </script>

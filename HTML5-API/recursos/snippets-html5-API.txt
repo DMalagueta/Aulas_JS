@@ -1,0 +1,42 @@
+
+//////// funcao para o gradiente da nave espacial.....///////////
+
+function drawBackground(){
+            //night sky	
+            let lineGrad = ctx.createLinearGradient(0, 0, 0, 300);
+            lineGrad.addColorStop(0, 'black');
+            lineGrad.addColorStop(1, '#5498d1');
+            ctx.fillStyle = lineGrad;
+            ctx.fillRect(0, 0, 300, 300);
+
+            //<!-- stars -->
+            ctx.fillStyle = 'white';
+
+            ctx.beginPath();
+            ctx.arc(55, 58, 3, 0, Math.PI*2, false);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(227, 128, 2, 0, Math.PI*2, false);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(214, 50, 1, 0, Math.PI*2, false);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(138, 117, 1, 0, Math.PI*2, false);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(43, 195, 1, 0, Math.PI*2, false);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(294, 15, 2, 0, Math.PI*2, false);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(185, 223, 1, 0, Math.PI*2, false);
+            ctx.fill();	
+        }

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas API</title>
+    <style>
+        canvas {
+            background-color:bisque;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Canvas API</h1>
+
+    <button id="mais">+</button>
+    <button id="menos">-</button>
+    <br>
+    <canvas width="300" height="300"></canvas>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', init, false);
+        function init() {
+            let canvas = document.querySelector('canvas');
+            let ctx = canvas.getContext('2d');
+
+            let mais = document.getElementById('mais');
+            let menos = document.getElementById('menos');
+
+            mais.addEventListener('click', acelera, false);
+            menos.addEventListener('click', desacelera, false);
+
+            let ovni = new Image();
+            let x = 0;
+            let y = 50;
+            let acc =3;
+
+            ovni.src="../images/ufo.png";
+
+            setInterval(draw,20);
+            // repetir, invocar um metodo em determinado intervalo de tempo
+
+            function draw(){
+                drawBackground();
+                ctx.drawImage(ovni,x,y);
+
+                x += acc;
+
+                if(x > 301){
+                    x=-50;
+                    y=Math.random()*270;
+                }
+
+                if(x < -51){
+                    x = 300;
+                    y=Math.random()*270;
+                }
+            }
+
+            function acelera() {
+                acc +=4;
+            }
+
+            function desacelera() {
+                acc -=4;
+            }
+            
+
+
+            function drawBackground(){
+            //night sky	
+            let lineGrad = ctx.createLinearGradient(0, 0, 0, 300);
+            lineGrad.addColorStop(0, 'black');
+            lineGrad.addColorStop(1, '#5498d1');
+            ctx.fillStyle = lineGrad;
+            ctx.fillRect(0, 0, 300, 300);
+
+            //<!-- stars -->
+            ctx.fillStyle = 'white';
+
+            ctx.beginPath();
+            ctx.arc(55, 58, 3, 0, Math.PI*2, false);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(227, 128, 2, 0, Math.PI*2, false);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(214, 50, 1, 0, Math.PI*2, false);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(138, 117, 1, 0, Math.PI*2, false);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(43, 195, 1, 0, Math.PI*2, false);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(294, 15, 2, 0, Math.PI*2, false);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(185, 223, 1, 0, Math.PI*2, false);
+            ctx.fill();	
+        }
+
+
+        }
+
+
+
+    </script>
+</body>
+</html>

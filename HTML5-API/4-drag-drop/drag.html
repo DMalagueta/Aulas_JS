@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag & Drop</title>
+
+    <style>
+        body {
+            font-family:'Courier New', Courier, monospace;
+            flex-direction: column;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        section.cesto{
+            width:300px;
+            height:350px;
+            border: 2px dashed grey;
+            overflow-y: scroll;
+        }
+
+        section.info{
+            font-size:2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drag & Drop API</h1> 
+    <section class="items" id="items">
+        <img src="bushmills.jpg" alt="" srcset="">
+        <img src="bushmillsBlack.jpg" alt="" srcset="">
+    </section>
+
+    <section class="cesto" id="cesto"></section>
+    <section class="info" id="info"></section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', init, false);
+        
+        function init() {
+            
+            // VARIAVEIS
+            let items = document.getElementById('items');
+            let cesto = document.getElementById('cesto');
+            let info = document.getElementById('info');
+            let novoItem;
+
+
+            // EVENTOS
+            cesto.addEventListener('dragenter',prevent,false);
+            cesto.addEventListener('dragover',prevent,false);
+            cesto.addEventListener('drop', onDrop,false);
+
+            items.addEventListener('dragstart', onDrag, false);
+
+            // LOGICA
+            function prevent(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+
+            function onDrag({target}){
+                console.log(target)
+                novoItem = target;
+            }
+
+            function onDrop(){
+                //cesto.innerHTML += novoItem.outerHTML;
+                let imgCount = cesto.querySelectorAll('section.cesto img');
+                
+                console.log(imgCount.length)
+                cesto.innerHTML += `<img src="${novoItem.src}">`;
+                info.textContent = `Items : ${imgCount.length + 1}`
+            }
+        }
+    </script>
+</body>
+</html>

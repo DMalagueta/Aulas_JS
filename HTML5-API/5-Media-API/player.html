@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="player.css">
+    <title>Player</title>
+</head>
+<body>
+    <h1>My video Player</h1>
+
+    <nav id="controlBtns" class="controlBtns">
+        <button id="playBtn">Play</button>
+        <button id="pauseBtn">Pause</button>
+        <button id="stopBtn">Stop</button>
+        <button id="muteBtn">Mute</button>
+        <button id="maisBtn">+</button>
+        <button id="menosBtn">-</button>
+    </nav>
+
+    <label for="volume">Volume</label>
+    <meter></meter>
+    <!-- <canvas id="volume" width="600" height="10"></canvas> -->
+
+    <section id="player">
+        <video width="640" height="480" controls></video>
+    </section>
+    <script type='module' src="player.js"></script>
+</body>
+</html>

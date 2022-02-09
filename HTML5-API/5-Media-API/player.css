@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border:none;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav{
+    display: flex;
+    justify-content:space-evenly;
+    padding: 15px;
+    margin-top: 5vh;
+}
+
+button {
+    width:80px;
+    padding:5px 10px;
+    background-color: lightgray;
+    border-top:3px solid darkgrey;
+    border-bottom: 3px solid darkgrey;
+
+    transition: all 350ms ease-out;
+}
+
+button:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+meter{
+    width:480px;
+}
+
+meter::-webkit-meter-optimum-value {
+    background-color:darkgray;
+    
+}

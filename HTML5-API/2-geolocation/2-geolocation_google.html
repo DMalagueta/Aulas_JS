@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation</title>
+    <style>
+        .map{
+            width:90vw;
+            height:300px;
+            background-color:lightgray;
+            border: 2px solid darkslategray;
+            border-radius:5%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Geolocation</h1>
+    <button id="btn">Ler geolocalização</button>
+    <h2 id="latitude">Latitude:</h2>
+    <h2 id="longitude">Longitude:</h2>
+
+    <section class="map" id="map"></section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', init, false);
+
+        let lat; 
+        let lng;
+        let mapGoogle;
+        
+
+        function init() {
+            
+            let btn       = document.getElementById('btn');
+            let latitude  = document.getElementById('latitude');
+            let longitude = document.getElementById('longitude');
+            let map       = document.getElementById('map');
+            
+
+            btn.addEventListener('click',lerCoordenadas,false);
+        }
+
+        function lerCoordenadas(){
+                if ("geolocation" in navigator) {
+
+                    navigator.geolocation.getCurrentPosition(sucesso, err);
+
+                    latitude.textContent = `Latitude: loading...`;
+                    longitude.textContent = `Longitude: loading...`;
+
+
+
+
+                } else {
+                    alert('O seu browser nao tem acesso a geolocalização');
+                }
+            }
+
+        function sucesso(position){
+
+            lat = position.coords.latitude;
+            lng = position.coords.longitude;
+
+               // console.log(position)
+            latitude.textContent = `Latitude: ${lat}`;
+            longitude.textContent = `Longitude: ${lng}`;
+
+            mapGoogle = new google.maps.Map(map, {
+                center: {lat, lng},
+                zoom: 15,
+            });
+
+            let marker = new google.maps.Marker({
+                position: {lat,lng},
+                mapGoogle,
+                title: "Hello World!",
+            });
+            
+            marker.setMap(mapGoogle);
+        }
+
+        function err(err){
+            console.log('Ocorreu um erro...');
+            
+        }
+    </script>
+
+     <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYuL-KdC3LLYVtmCbdq5OyfgUbiWk4UDU&callback=lerCoordenadas">
+    </script>
+</body>
+</html>

@@ -179,7 +179,6 @@ function init(){
         } else {
             mostrarLivros(livros);
         }
-        
     }
 
     function mostrarLivros(arrayLivros){
@@ -196,7 +195,7 @@ function init(){
                     <section>
                         <button class="deleteBtn" data-id="${livro.id}">Delete</button>
                         <button class="editBtn" data-id="${livro.id}">Edit</button>
-                    </section
+                    </section>
                 </article>
             `;
         
